@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="../static/css/st.css" rel="stylesheet">
     <link href="../static/css/register.css" rel="stylesheet">
+
+    <script language="JavaScript" type="text/javascript" src="../static/js/txt.js"></script>
 </head>
 <body class="bg">
 <header>
@@ -27,9 +29,9 @@
   </nav>
 </header>
 
-<form class="form-signin text-center">
-    <input class="btn btn-lg btn-primary btn-block" type="file"/>
-</form>
+
+<input type="file" id="files" name="files[]" multiple />
+<output id="list"></output>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="../static/js/bootstrap.min.js"></script>
