@@ -6,35 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="../static/css/bootstrap.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="../static/css/st.css" rel="stylesheet">
     <link href="../static/css/register.css" rel="stylesheet">
+	{% block css %}{% endblock %}
 
-    <script language="JavaScript" type="text/javascript" src="../static/js/txt.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Neucha" rel="stylesheet">
 </head>
 <body class="bg">
 <header>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="index2.html">txt2pdf</a>
+    <a class="navbar-brand" href={{ url_for('index') }}>TXT2PDF</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav mr-auto">
-          <li class="nav-item disabled">
-          <a class="nav-link">@name<span class="sr-only">(current)</span></a>
-        </li>
-      </ul>
-    </div>
+    {% block header_content %}{% endblock %}
   </nav>
 </header>
 
-
-<input type="file" id="files" name="files[]" multiple />
-<output id="list"></output>
+{% block body_content %}{% endblock %}
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="../static/js/bootstrap.min.js"></script>
+{% block js %}{% endblock %}
 
 </body>
 </html>

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block header_content %}
+<div class="collapse navbar-collapse" id="navbarCollapse">
+  <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+      <a class="nav-link" href={{ url_for('logout') }}> Выйти <span class="sr-only">(current)</span></a>
+    </li>
+  </ul>
+</div>
+{% endblock %}
+
+{% block body_content %}
+<div class="container-center container-list">
+    <ul>
+        {% for user in users %}
+            <li>{{ user.username }} - {{ user.file_counter }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

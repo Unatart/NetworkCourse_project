@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% from "_render_field_.html" import render_field, render_radio_fields %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block header_content %}
+<div class="collapse navbar-collapse" id="navbarCollapse">
+  <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+      <a class="nav-link" href="{{ url_for('signup') }}"> Зарегистрироваться <span class="sr-only">(current)</span></a>
+    </li>
+  </ul>
+</div>
+{% endblock %}
+{% block body_content %}
+<form class="form-signin text-center" method="POST" action="/login">
+  <h1 class="h3 mb-3 font-weight-normal" style="color:#fff"> Введите свои данные: </h1>
+    {{ form.hidden_tag() }}
+    {{ render_field(form.username, placeholder=form.username.label.text) }}
+    {{ render_field(form.password, placeholder=form.password.label.text) }}
+    <h6 style="color:red">{{ error }}</h6>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Принять</button>
+</form>
+{% endblock %}

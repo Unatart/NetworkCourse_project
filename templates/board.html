@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block header_content %}
+<div class="collapse navbar-collapse" id="navbarCollapse">
+  <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+      <a class="nav-link" href={{ url_for('logout') }}> Выйти <span class="sr-only">(current)</span></a>
+    </li>
+  </ul>
+</div>
+{% endblock %}
+
+{% block body_content %}
+<div class="container-center">
+ <form class="container-list" action = "{{ url_for('file_in_work') }}" method = "POST"
+         enctype = "multipart/form-data">
+         <input class="btn-file" type = "file" name = "file" />
+
+         <input class="btn-file" type = "submit"/>
+  </form>
+    <a href="/return-files/" target="blank"><button class="btn-file">Скачать PDF!</button></a>
+</div>
+
+{% endblock %}
