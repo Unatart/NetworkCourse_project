@@ -10,6 +10,18 @@ from utils import generate_password_hash
 from flask import send_from_directory
 import os
 
+@app.after_request
+def add_header(r):
+    """
+    Add headers to both force latest IE rendering engine or Chrome Frame,
+    and also to cache the rendered page for 10 minutes.
+    """
+    r.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    r.headers["Pragma"] = "no-cache"
+    r.headers["Expires"] = "0"
+    r.headers['Cache-Control'] = 'public, max-age=0'
+    return r
+
 
 # START APP
 @app.route('/')
@@ -70,6 +82,7 @@ def file_in_work():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            os.system("rm output.pdf")
             os.system("python3 txttopdf.py " + app.config['UPLOAD_FOLDER'] + filename)
             return redirect(url_for('board'))
 
